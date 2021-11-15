@@ -29,7 +29,7 @@ public class KJudge extends JavaPlugin implements Listener {
     @Override
     public void onEnable() {
         Bukkit.getConsoleSender().sendMessage("Enabling kJudge!");
-        Bukkit.getConsoleSender().sendMessage("Version: 2.3");
+        Bukkit.getConsoleSender().sendMessage("Version: 2.6");
 
         getConfig().options().copyDefaults();
         saveDefaultConfig();
