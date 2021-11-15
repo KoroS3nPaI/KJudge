@@ -1,0 +1,6 @@
+#MySQL database:
+hostname: 'localhost'
+port: '3306' #3308
+database: 'kjudge' #automatically created if it does not exist
+user: 'root'
+password: ''

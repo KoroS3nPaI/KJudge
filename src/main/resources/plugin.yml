@@ -1,0 +1,20 @@
+name: KJudge
+version: '${version}'
+main: me.koros3npai.kjudge.KJudge
+api-version: 1.16
+authors: [ KoroS3nPaI ]
+description: A judge plugin for plots
+depend: [PlotSquared]
+commands:
+  submit:
+    description: Open the submission GUI/plot overview.
+  judge:
+    description: Access all submitted plots.
+  ptitle:
+    description: Edit your plot title.
+  plore:
+    description: Edit your plot lore.
+  pinfo:
+    description: A judge command to check the plot overview of other plots.
+  pcomment:
+    description: Write a comment for a plot(for judges).
