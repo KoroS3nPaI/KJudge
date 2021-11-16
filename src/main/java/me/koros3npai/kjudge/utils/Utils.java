@@ -231,7 +231,7 @@ public class Utils extends KJudge{
         if(PlotUtils.plotCheckNull((Player) player)) {
             l.add(ChatColor.GRAY + "Status: " + ChatColor.GOLD + SQLGetter.getPlotStatus(id));
             GetGroupLP gg = new GetGroupLP(getInstance(), getInstance().luckPerms);
-            l.add(ChatColor.GRAY + "Rank:" + ChatColor.GOLD + gg.getPlayerGroup(player));
+            l.add(ChatColor.GRAY + "Rank: " + ChatColor.GOLD + gg.getPlayerGroup(player));
         }
         meta.setLore(l);
         skull.setItemMeta(meta);

@@ -169,7 +169,7 @@ public class GUIlistener implements Listener {
                     p.performCommand("pcomment");
                 }
                 case REDSTONE_TORCH -> p.openInventory(GUIinit.invsetrank);
-                case BARRIER -> p.openInventory(GUIinit.invdeny);
+                case RED_CONCRETE -> p.openInventory(GUIinit.invdeny);
             }
 
             e.setCancelled(true);

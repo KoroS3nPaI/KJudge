@@ -117,7 +117,7 @@ public class GUIinit {
         invplotinfojudge.setItem(1, Utils.createGuiItem(Material.REDSTONE_TORCH,ChatColor.GREEN + "Set rank", 1, ChatColor.YELLOW + "Accept Plot"));
         invplotinfojudge.setItem(3, Utils.createGuiItem(Material.OAK_SIGN, ChatColor.GOLD + "Title:", 1, SQLGetter.getPlotTitle(PlotUtils.getId(player).toString())));
         invplotinfojudge.setItem(5, Utils.createGuiItem(Material.WRITABLE_BOOK, ChatColor.GOLD + "Lore:", 1, SQLGetter.getPlotLore(PlotUtils.getId(player).toString())));
-        invplotinfojudge.setItem(7, Utils.createGuiItem(Material.PAPER,  "Comments:", 1,SQLGetter.getPlotComment(PlotUtils.getId(player).toString())));
-        invplotinfojudge.setItem(8, Utils.createGuiItem(Material.BARRIER,ChatColor.GRAY + "Deny plot", 1));
+        invplotinfojudge.setItem(7, Utils.createGuiItem(Material.PAPER,  ChatColor.GRAY + "Comments:", 1,SQLGetter.getPlotComment(PlotUtils.getId(player).toString())));
+        invplotinfojudge.setItem(8, Utils.createGuiItem(Material.RED_CONCRETE,ChatColor.RED + "Deny plot", 1));
     }
 }
