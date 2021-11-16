@@ -65,10 +65,8 @@ public class SubmittedMenu extends PaginatedMenu {
                 if(index >= plots.size()) break;
                 if(plots.get(index) != null) {
                     //Getting all submitted plots
-                    for(int j = 0; j < SQLGetter.getPlotIDSubmitted().size(); j++){
-                        OfflinePlayer p = Utils.getPlayerByID(SQLGetter.getPlotIDSubmitted().get(j));
-                        inventory.addItem(Utils.getHead(p, SQLGetter.getPlotIDSubmitted().get(j)));
-                    }
+                    OfflinePlayer p = Utils.getPlayerByID(plots.get(index));
+                    inventory.addItem(Utils.getHead(p, plots.get(index)));
                 }
             }
         }
