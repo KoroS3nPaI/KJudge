@@ -221,7 +221,7 @@ public class Utils extends KJudge{
     }
 
     public static ItemStack getHead(OfflinePlayer player, String id){
-        ItemStack skull = new ItemStack(Material.PLAYER_HEAD);
+        ItemStack skull = new ItemStack(Material.PLAYER_HEAD, 1);
         SkullMeta meta = (SkullMeta) skull.getItemMeta();
         meta.setOwningPlayer(player);
         meta.setDisplayName(player.getName());
@@ -236,7 +236,7 @@ public class Utils extends KJudge{
 
         meta.setLore(l);
         skull.setItemMeta(meta);
-skull.
+
         return skull;
     }
 
