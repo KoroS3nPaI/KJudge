@@ -22,6 +22,7 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.UUID;
 
 public class GUIlistener implements Listener {
     private KJudge plugin;
@@ -36,6 +37,12 @@ public class GUIlistener implements Listener {
     @EventHandler
     public void onInventoryClick(InventoryClickEvent e) {
         Player p = (Player) e.getWhoClicked();
+
+        PlotPlayer player = BukkitUtil.getPlayer(p);//BukkitUtil.adapt(p);
+        String id = player.getCurrentPlot().getId().toString();
+        List<String> status = new ArrayList<>();
+        status.add(SQLGetter.getPlotStatus(id));
+        boolean exists =  SQLGetter.exists(UUID.nameUUIDFromBytes(id.getBytes()));
 
         if (Objects.equals(e.getClickedInventory(), GUIinit.inv)){
 
@@ -60,22 +67,19 @@ public class GUIlistener implements Listener {
 
         if(Objects.equals(e.getClickedInventory(), GUIinit.invconfirm)){
 
-            PlotPlayer player = BukkitUtil.getPlayer(p);//BukkitUtil.adapt(p);
-            String id = player.getCurrentPlot().getId().toString();
-            List<String> status = new ArrayList<>();
-            status.add(SQLGetter.getPlotStatus(id));
-
             if (e.getCurrentItem() == null) { //deal with null exceptions
                 return;
             }
 
             switch (e.getCurrentItem().getType()) {
                 case GREEN_CONCRETE -> {
-                    if(!(status.contains("ACCEPTED"))) {
+                    if(!(status.contains("ACCEPTED") || status.contains("PENDING"))) {
                         p.sendMessage(ChatColor.GOLD + "Plot submitted!");
                         SQLGetter.setPlotStatus(PlotUtils.getId(p).toString(), "PENDING");
                         p.closeInventory();
-                    } else p.sendMessage(ChatColor.RED + "This plot has already been accepted");
+                    } else if(status.contains("ACCEPTED")) p.sendMessage(ChatColor.RED + "This plot has already been accepted");
+                    else if (status.contains("PENDING")) p.sendMessage(ChatColor.RED + "This plot has already been submitted");
+
                 }
                 case RED_CONCRETE -> p.openInventory(GUIinit.inv);
             }
@@ -92,10 +96,10 @@ public class GUIlistener implements Listener {
             switch (e.getCurrentItem().getType()) {
                 case WRITABLE_BOOK -> new SubmittedMenu(KJudge.getPlayerMenuUtility(p)).open();
                 case PAPER -> {
-                    if(PlotUtils.plotCheckNull(p)){
+                    if(PlotUtils.plotCheckNull(p) && exists){
                         GUIinit.GUIJudge(p);
                         p.openInventory(GUIinit.invplotinfojudge);
-                    } else p.sendMessage(ChatColor.RED + "You must stand on a plot");
+                    } else p.sendMessage(ChatColor.RED + "You must stand on a submitted plot");
 
                 }
             }
