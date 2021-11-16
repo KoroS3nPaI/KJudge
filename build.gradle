@@ -3,7 +3,7 @@ plugins {
 }
 
 group = 'me.koros3npai'
-version = '2.6'
+version = '2.5.13'
 
 repositories {
     mavenCentral()

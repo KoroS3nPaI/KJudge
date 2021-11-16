@@ -236,7 +236,7 @@ public class Utils extends KJudge{
 
         meta.setLore(l);
         skull.setItemMeta(meta);
-
+skull.
         return skull;
     }
 
