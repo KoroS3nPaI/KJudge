@@ -81,7 +81,7 @@ public class SetPlotComment implements CommandExecutor {
     }
 
     public Boolean isSubmit(Player p){
-        PlotPlayer pp = BukkitUtil.adapt(p);
+        PlotPlayer pp = BukkitUtil.getPlayer(p); //BukkitUtil.adapt(p);
         PlotId id = pp.getCurrentPlot().getId();
 
         if( SQLGetter.getPlotIDSubmitted().contains(id.toString())){

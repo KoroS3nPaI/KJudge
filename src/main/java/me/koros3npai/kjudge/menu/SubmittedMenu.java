@@ -29,7 +29,7 @@ public class SubmittedMenu extends PaginatedMenu {
         Player p = (Player) e.getWhoClicked();
         List<String> plots = SQLGetter.getPlotIDSubmitted();
         if (e.getCurrentItem().getType().equals(Material.PLAYER_HEAD)) {
-            p.performCommand("p v " + String.join("", e.getCurrentItem().getItemMeta().getLore()));
+            p.performCommand("p v " + String.join("", e.getCurrentItem().getItemMeta().getLore().get(0)));
         }else if (e.getCurrentItem().getType().equals(Material.BARRIER)) {
 
             //close inventory

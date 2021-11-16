@@ -1,5 +1,6 @@
 package me.koros3npai.kjudge;
 
+import com.plotsquared.core.api.PlotAPI;
 import me.koros3npai.kjudge.classes.PlotSubmit;
 import me.koros3npai.kjudge.commands.*;
 import me.koros3npai.kjudge.listeners.GUIlistener;
@@ -9,7 +10,6 @@ import me.koros3npai.kjudge.utils.GetGroupLP;
 import me.koros3npai.kjudge.utils.PlotUtils;
 import me.koros3npai.kjudge.sql.MySQL;
 import me.koros3npai.kjudge.sql.SQLGetter;
-import com.plotsquared.core.PlotAPI;
 import net.luckperms.api.LuckPerms;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;

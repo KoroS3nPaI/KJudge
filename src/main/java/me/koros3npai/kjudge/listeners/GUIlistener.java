@@ -60,7 +60,7 @@ public class GUIlistener implements Listener {
 
         if(Objects.equals(e.getClickedInventory(), GUIinit.invconfirm)){
 
-            PlotPlayer player = BukkitUtil.adapt(p);
+            PlotPlayer player = BukkitUtil.getPlayer(p);//BukkitUtil.adapt(p);
             String id = player.getCurrentPlot().getId().toString();
             List<String> status = new ArrayList<>();
             status.add(SQLGetter.getPlotStatus(id));

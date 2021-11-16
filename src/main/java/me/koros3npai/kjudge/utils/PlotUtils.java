@@ -1,7 +1,7 @@
 package me.koros3npai.kjudge.utils;
 
 import com.plotsquared.bukkit.util.BukkitUtil;
-import com.plotsquared.core.PlotAPI;
+import com.plotsquared.core.api.PlotAPI;
 import com.plotsquared.core.player.PlotPlayer;
 import com.plotsquared.core.plot.Plot;
 import com.plotsquared.core.plot.PlotId;
@@ -14,7 +14,7 @@ public class PlotUtils extends PlotAPI{
     }
 
     public static PlotId getId(Player player){
-        PlotPlayer p = BukkitUtil.adapt(player);
+        PlotPlayer p = BukkitUtil.getPlayer(player); //BukkitUtil.adapt(player);
         Plot plot = p.getCurrentPlot();
 
         if(plot == null || !plot.hasOwner()){
@@ -25,7 +25,7 @@ public class PlotUtils extends PlotAPI{
     }
 
     public static String printId(Player player){
-        PlotPlayer p = BukkitUtil.adapt(player);
+        PlotPlayer p = BukkitUtil.getPlayer(player); //BukkitUtil.adapt(player);
         Plot plot = p.getCurrentPlot();
 
         if(plot == null || !plot.hasOwner()){
@@ -43,7 +43,7 @@ public class PlotUtils extends PlotAPI{
     }
 
     public static boolean plotCheck(Player player){
-        PlotPlayer p = BukkitUtil.adapt(player);
+        PlotPlayer p = BukkitUtil.getPlayer(player); //BukkitUtil.adapt(player);
         Plot plot = p.getCurrentPlot();
 
         if(plot == null || !plot.hasOwner()){
@@ -60,7 +60,7 @@ public class PlotUtils extends PlotAPI{
     }
 
     public static boolean plotCheckNull(Player player) {
-        PlotPlayer p = BukkitUtil.adapt(player);
+        PlotPlayer p = BukkitUtil.getPlayer(player); //BukkitUtil.adapt(player);
         Plot plot = p.getCurrentPlot();
 
         if (plot == null || !plot.hasOwner()) return false;
