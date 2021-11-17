@@ -168,8 +168,20 @@ public class GUIlistener implements Listener {
                     p.closeInventory();
                     p.performCommand("pcomment");
                 }
-                case REDSTONE_TORCH -> p.openInventory(GUIinit.invsetrank);
-                case RED_CONCRETE -> p.openInventory(GUIinit.invdeny);
+                case REDSTONE_TORCH -> {
+                    if(status.contains("PENDING")) {
+                        p.openInventory(GUIinit.invsetrank);
+                    } else if(status.contains("NOT SUBMITTED")) p.sendMessage(ChatColor.RED + "This plot has not been submitted");
+                    else if(status.contains("ACCEPTED")) p.sendMessage(ChatColor.RED + "This plot has already been accepted");
+                    else if(status.contains("DENIED")) p.sendMessage(ChatColor.RED + "This plot has already been denied");
+                }
+                case RED_CONCRETE -> {
+                    if(status.contains("PENDING")) {
+                        p.openInventory(GUIinit.invdeny);
+                    } else if(status.contains("NOT SUBMITTED")) p.sendMessage(ChatColor.RED + "This plot has not been submitted");
+                    else if(status.contains("ACCEPTED")) p.sendMessage(ChatColor.RED + "This plot has already been accepted");
+                    else if(status.contains("DENIED")) p.sendMessage(ChatColor.RED + "This plot has already been denied");
+                }
             }
 
             e.setCancelled(true);
